@@ -162,7 +162,6 @@ def which_pump_are_you_calibrating() -> tuple[str, Callable]:
 
 
 def choose_settings() -> tuple[float, float]:
-    current_hz = 
     hz = click.prompt(
         click.style(
             "Optional: Enter frequency of PWM. [enter] for current setting 250 hz", fg="green"
@@ -284,7 +283,7 @@ def run_tests(
 
             execute_pump(
                 duration=duration,
-                source_of_event="pump_calibration",
+                source_of_event="pump_offline_calibration",
                 unit=get_unit_name(),
                 experiment=get_latest_testing_experiment_name(),
                 calibration=empty_calibration,
