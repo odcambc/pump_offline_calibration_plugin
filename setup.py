@@ -7,7 +7,7 @@ from setuptools import setup
 
 setup(
     name="pump_offline_calibration_plugin",
-    version="1.0.0",
+    version="1.0.1",
     license="MIT",
     description="Perform an offline calibration of pumps.",
     long_description=open("README.md").read(),
