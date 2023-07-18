@@ -164,7 +164,8 @@ def which_pump_are_you_calibrating() -> tuple[str, Callable]:
 def choose_settings() -> tuple[float, float]:
     hz = click.prompt(
         click.style(
-            "Optional: Enter frequency of PWM. [enter] for current setting 250 hz", fg="green"
+            "Optional: Enter frequency of PWM. [enter] for current setting 250 hz",
+            fg="green",
         ),
         type=click.FloatRange(0.1, 10000),
         default=250,
@@ -414,7 +415,7 @@ def pump_offline_calibration(min_duration: float, max_duration: float) -> None:
         click.echo("Enter comma-separated list of measured masses (in mg)")
         click.echo("Example: 0.613,0.701,1.023,1.254,1.873,1.941")
         volumes_str = click.prompt("Masses: ", type=str)
-        volumes = [float(m) for m in str.split(volumes_str, ",")]
+        volumes = [float(m) / 1000 for m in str.split(volumes_str, ",")]
 
         (slope, std_slope), (
             bias,
